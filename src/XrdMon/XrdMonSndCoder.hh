@@ -26,6 +26,7 @@
 #include <netinet/in.h>
 #include <utility> // for pair
 #include <vector>
+#include <cstring>
 using std::cerr;
 using std::cout;
 using std::endl;
