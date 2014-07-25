@@ -347,7 +347,7 @@ void XrdCmsReq::Reply(       int    respCode, unsigned int respVal,
                       struct iovec *iov,      int iovnum)
 {
    EPNAME("Reply");
-   CmsResponse Resp = {{ReqID, respCode, 0, 0}, htonl(respVal)};
+   CmsResponse Resp = {{ReqID, static_cast<unsigned char>(respCode), 0, 0}, htonl(respVal)};
    struct iovec myiov[2], *iovP;
    XrdCmsNode *nP;
 

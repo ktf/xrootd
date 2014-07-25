@@ -378,7 +378,7 @@ kXR_int32 XrdSutPFile::Open(kXR_int32 opt, bool *wasopen,
 
    //
    // Shared or exclusive lock of the whole file
-   int lockmode = (opt > 0) ? (F_WRLCK | F_RDLCK) : F_RDLCK;
+   short int lockmode = (opt > 0) ? (F_WRLCK | F_RDLCK) : F_RDLCK;
    int lck = kMaxLockTries;
    int rc = 0;
    while (lck && rc == -1) {

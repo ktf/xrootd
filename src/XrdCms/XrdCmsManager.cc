@@ -153,7 +153,8 @@ void XrdCmsManager::Inform(const char *What, struct iovec *vP, int vN, int vT)
 void XrdCmsManager::Inform(XrdCms::CmsReqCode rCode, int rMod,
                                   const char *Arg,  int Alen)
 {
-    CmsRRHdr Hdr = {0, rCode, rMod, htons(static_cast<unsigned short>(Alen))};
+    CmsRRHdr Hdr = {0, static_cast<unsigned char>(rCode), static_cast<unsigned char>(rMod), 
+                    htons(static_cast<unsigned short>(Alen))};
     struct iovec ioV[2] = {{(char *)&Hdr, sizeof(Hdr)},{(char *)Arg, Alen}};
 
     Inform(Router.getName((int)rCode), ioV, (Arg ? 2 : 1), Alen+sizeof(Hdr));
