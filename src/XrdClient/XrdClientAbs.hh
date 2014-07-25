@@ -65,6 +65,8 @@ public:
    // Hook to the open connection (needed by TXNetFile)
    XrdClientConn              *GetClientConn() const { return fConnModule; }
 
+   const char *                GetHandle () const { return fHandle; }
+
    inline XrdClientUrlInfo GetCurrentUrl() {
       if (fConnModule)
 	 return fConnModule->GetCurrentUrl();
