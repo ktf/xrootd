@@ -26,7 +26,6 @@ endif()
 #-------------------------------------------------------------------------------
 if( APPLE )
   set( MacOSX TRUE )
-  add_definitions( -D__macos__=1 )
   add_definitions( -DLT_MODULE_EXT=".dylib" )
   set( CMAKE_INSTALL_LIBDIR "lib" )
   set( CMAKE_INSTALL_BINDIR "bin" )

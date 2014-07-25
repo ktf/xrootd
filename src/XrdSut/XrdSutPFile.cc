@@ -382,7 +382,7 @@ kXR_int32 XrdSutPFile::Open(kXR_int32 opt, bool *wasopen,
    int lck = kMaxLockTries;
    int rc = 0;
    while (lck && rc == -1) {
-#ifdef __macos__
+#ifdef __APPLE__
       struct flock flck = {0, 0, 0, lockmode, SEEK_SET};
 #else
       struct flock flck = {lockmode, SEEK_SET, 0, 0};
@@ -399,7 +399,7 @@ kXR_int32 XrdSutPFile::Open(kXR_int32 opt, bool *wasopen,
       if (errno == EACCES || errno == EAGAIN) {
          // File locked by other process
          int pid = -1;
-#ifdef __macos__
+#ifdef __APPLE__
          struct flock flck = {0, 0, 0, lockmode, SEEK_SET};
 #else
          struct flock flck = {lockmode, SEEK_SET, 0, 0};
@@ -434,7 +434,7 @@ kXR_int32 XrdSutPFile::Close(kXR_int32 fd)
 
    //
    // Unlock the file
-#ifdef __macos__
+#ifdef __APPLE__
    struct flock flck = {0, 0, 0, F_UNLCK, SEEK_SET};
 #else
    struct flock flck = {F_UNLCK, SEEK_SET, 0, 0};

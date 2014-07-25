@@ -21,7 +21,7 @@
 
 #ifndef WIN32
 #include <dlfcn.h>
-#if !defined(__macos__) && !defined(__CYGWIN__)
+#if !defined(__APPLE__) && !defined(__CYGWIN__)
 #include <link.h>
 #endif
 #include <stdio.h>
@@ -77,7 +77,7 @@ void *XrdSysPlugin::getPlugin(const char *pname, int errok, bool global)
 //
    if (!(msgPath = libPath))
       {msgPath = "executable image";
-#if    defined(__macos__)
+#if    defined(__APPLE__)
        flags = RTLD_FIRST;
 #elif  defined(__linux__)
        flags = RTLD_NOW | RTLD_NODELETE;

@@ -20,7 +20,7 @@
 #endif
   
 #include <dlfcn.h>
-#ifndef __macos__
+#ifndef __APPLE__
 #include <link.h>
 #endif
 

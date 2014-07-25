@@ -16,7 +16,7 @@
 #ifdef __FreeBSD__
 #include <fcntl.h>
 #endif
-#ifdef __macos__
+#ifdef __APPLE__
 #include <sys/aio.h>
 #else
 #include <aio.h>
@@ -38,7 +38,7 @@
 // 1) No implementation of sigwaitinfo(). Though we can simulate it...
 // 2) Event notification returns an incomplete siginfo structure.
 //
-#ifdef __macos__
+#ifdef __APPLE__
 #undef _POSIX_ASYNCHRONOUS_IO
 #endif
 
@@ -379,7 +379,7 @@ void *XrdOssAioWait(void *mySigarg)
            continue;
           }
 
-#ifdef __macos__
+#ifdef __APPLE__
        aiop = (XrdSfsAio *)myInfo.si_value.sigval_ptr;
 #else
        aiop = (XrdSfsAio *)myInfo.si_value.sival_ptr;
@@ -439,7 +439,7 @@ void XrdOssAioRSH(int signum, siginfo_t *info, void *ucontext)
    XrdOssAioInfoR->si_signo = info->si_signo;
    XrdOssAioInfoR->si_errno = info->si_errno;
    XrdOssAioInfoR->si_code  = info->si_code;
-#ifdef __macos__
+#ifdef __APPLE__
    XrdOssAioInfoR->si_value.sigval_ptr = info->si_addr;
 #else
    XrdOssAioInfoR->si_value.sival_ptr = info->si_value.sival_ptr;
@@ -467,7 +467,7 @@ void XrdOssAioWSH(int signum, siginfo_t *info, void *ucontext)
    XrdOssAioInfoW->si_signo = info->si_signo;
    XrdOssAioInfoW->si_errno = info->si_errno;
    XrdOssAioInfoW->si_code  = info->si_code;
-#ifdef __macos__
+#ifdef __APPLE__
    XrdOssAioInfoW->si_value.sigval_ptr = info->si_addr;
 #else
    XrdOssAioInfoW->si_value.sival_ptr = info->si_value.sival_ptr;

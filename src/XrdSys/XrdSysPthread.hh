@@ -275,7 +275,7 @@ XrdSysRWLock *lck;
 //                 semaphores need to be implemented based on condition
 //                 variables since no native implementation is available.
   
-#ifdef __macos__
+#ifdef __APPLE__
 class XrdSysSemaphore
 {
 public:

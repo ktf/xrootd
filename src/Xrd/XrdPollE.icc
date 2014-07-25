@@ -8,7 +8,7 @@
 /*              DE-AC02-76-SFO0515 with the Department of Energy              */
 /******************************************************************************/
 
-#ifndef __macos__
+#ifndef __APPLE__
 #include <malloc.h>
 #endif
 #include <unistd.h>

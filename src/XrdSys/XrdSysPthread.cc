@@ -165,7 +165,7 @@ int XrdSysCondVar::WaitMS(int msec)
 /*                              C o n d W a i t                               */
 /******************************************************************************/
   
-#ifdef __macos__
+#ifdef __APPLE__
 
 int XrdSysSemaphore::CondWait()
 {
@@ -232,7 +232,7 @@ unsigned long XrdSysThread::Num()
    return static_cast<unsigned long>(syscall(SYS_gettid));
 #elif defined(__solaris__)
    return static_cast<unsigned long>(pthread_self());
-#elif defined(__macos__)
+#elif defined(__APPLE__)
    return static_cast<unsigned long>(pthread_mach_thread_np(pthread_self()));
 #else
    return static_cast<unsigned long>(getpid());

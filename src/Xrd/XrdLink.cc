@@ -25,7 +25,7 @@
 
 #ifdef HAVE_SENDFILE
 
-#ifndef __macos__
+#ifndef __APPLE__
 #include <sys/sendfile.h>
 #endif
 

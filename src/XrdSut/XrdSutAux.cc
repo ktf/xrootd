@@ -600,7 +600,7 @@ XrdSutFileLocker::XrdSutFileLocker(int fd, ELockType lock)
    // Exclusive lock of the whole file
    short int lockmode = (lock == XrdSutFileLocker::kExcl) ? (F_WRLCK | F_RDLCK)
                                                     :  F_RDLCK;
-#ifdef __macos__
+#ifdef __APPLE__
    struct flock flck = {0, 0, 0, lockmode, SEEK_SET};
 #else
    struct flock flck = {lockmode, SEEK_SET, 0, 0};
@@ -621,7 +621,7 @@ XrdSutFileLocker::~XrdSutFileLocker()
       return;
    //
    // Unlock the file
-#ifdef __macos__
+#ifdef __APPLE__
    struct flock flck = {0, 0, 0, F_UNLCK, SEEK_SET};
 #else
    struct flock flck = {F_UNLCK, SEEK_SET, 0, 0};

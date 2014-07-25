@@ -150,7 +150,7 @@ int     fcntl64(int fd, int cmd, ...)
 /*                             f d a t a s y n c                              */
 /******************************************************************************/
 // On Mac it is the same as fsync
-#if !defined(__macos__)
+#if !defined(__APPLE__)
 extern "C"
 {
 int     fdatasync(int fildes)
@@ -392,7 +392,7 @@ off64_t lseek64(int fildes, off64_t offset, int whence)
   
 extern "C"
 {
-#if defined(__linux__) || defined(__macos__)
+#if defined(__linux__) || defined(__APPLE__)
 off_t      llseek(int fildes, off_t    offset, int whence)
 #else
 offset_t   llseek(int fildes, offset_t offset, int whence)
