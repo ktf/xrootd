@@ -18,6 +18,7 @@ const char *XrdCmsAdminCVSID = "$Id$";
 #include <limits.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <cstdio>
 
 #include "XProtocol/YProtocol.hh"
 

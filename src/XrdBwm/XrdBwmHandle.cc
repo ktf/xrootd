@@ -19,6 +19,7 @@
 #include "XrdSys/XrdSysPlatform.hh"
 
 #include "XProtocol/XProtocol.hh"
+#include <cstdio>
 
 /******************************************************************************/
 /*                        S t a t i c   O b j e c t s                         */

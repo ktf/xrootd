@@ -19,6 +19,7 @@
 
 #include "Xrd/XrdJob.hh"
 #include "Xrd/XrdScheduler.hh"
+#include <cstdio>
 
 namespace XrdCms
 {

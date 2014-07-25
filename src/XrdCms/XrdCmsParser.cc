@@ -17,6 +17,7 @@
 #include <string.h>
 #include <netinet/in.h>
 #include <sys/types.h>
+#include <cstdio>
 
 #include "XrdCms/XrdCmsParser.hh"
 #include "XrdCms/XrdCmsRRData.hh"

@@ -21,6 +21,7 @@
 #include "XrdNet/XrdNetBuffer.hh"
 #include "XrdSfs/XrdSfsInterface.hh"
 #include "XrdSys/XrdSysError.hh"
+#include <cstdio>
 
 using namespace XrdCms;
  
